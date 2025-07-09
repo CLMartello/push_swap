@@ -6,7 +6,7 @@
 /*   By: clumertz <clumertz@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 16:19:23 by clumertz          #+#    #+#             */
-/*   Updated: 2025/07/08 20:09:56 by clumertz         ###   ########.fr       */
+/*   Updated: 2025/07/09 20:16:24 by clumertz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ long	*array_creation(char **array, int size)
 		a[i] = ft_atol(array[i]);
 		i++;
 	}
-	ft_free_mem(array, size - 1);
+	ft_free_mem(array, size);
 	return (a);
 }
 

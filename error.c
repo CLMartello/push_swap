@@ -6,7 +6,7 @@
 /*   By: clumertz <clumertz@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 19:39:20 by clumertz          #+#    #+#             */
-/*   Updated: 2025/07/08 18:54:15 by clumertz         ###   ########.fr       */
+/*   Updated: 2025/07/09 21:41:58 by clumertz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,16 @@ void	error(long *a, int size)
 		i++;
 	}
 	duplicate(a, size);
-	confirm_sort(a, size);
+	if (size == 1)
+	{
+		free(a);
+		exit(EXIT_FAILURE);
+	}
+	if ((confirm_sort(a, size)) == 1)
+	{
+		free(a);
+		msg_error();
+	}
 }
 
 void	duplicate(long *a, int size)
@@ -78,7 +87,7 @@ void	only_digit(char **a, int size)
 			}
 			else
 			{
-				free(a);
+				ft_free_mem(a, size);
 				msg_error();
 			}
 		}
@@ -97,18 +106,7 @@ int	confirm_sort(long *a, int size)
 			return (0);
 		i++;
 	}
-	free(a);
-	msg_error();
-	return (0);
+//	free(a);
+//	msg_error();
+	return (1);
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	int a[] = {0, 1, 2, -3, 4, 5};
-	int size = sizeof(a) / 4;
-	int i = 0;
-
-	printf("%d\n", confirm_sort(a, size));
-}*/
