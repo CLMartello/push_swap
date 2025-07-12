@@ -6,7 +6,7 @@
 /*   By: clumertz <clumertz@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 19:39:20 by clumertz          #+#    #+#             */
-/*   Updated: 2025/07/09 21:41:58 by clumertz         ###   ########.fr       */
+/*   Updated: 2025/07/12 16:37:29 by clumertz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,23 @@
 
 void	msg_error(void)
 {
-	ft_putstr("Error\n");
+	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
+}
+
+void	size_and_sort(long *a, int size)
+{
+	if (size == 1 || (confirm_sort(a, size)) == 1)
+	{
+		free(a);
+		exit(EXIT_FAILURE);
+	}
 }
 
 void	error(long *a, int size)
 {
 	int	i;
+	int	j;
 
 	i = 0;
 	while (i < size)
@@ -30,29 +40,6 @@ void	error(long *a, int size)
 			free(a);
 			msg_error();
 		}
-		i++;
-	}
-	duplicate(a, size);
-	if (size == 1)
-	{
-		free(a);
-		exit(EXIT_FAILURE);
-	}
-	if ((confirm_sort(a, size)) == 1)
-	{
-		free(a);
-		msg_error();
-	}
-}
-
-void	duplicate(long *a, int size)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < size - 1)
-	{
 		j = i + 1;
 		while (j < size)
 		{
@@ -106,7 +93,5 @@ int	confirm_sort(long *a, int size)
 			return (0);
 		i++;
 	}
-//	free(a);
-//	msg_error();
 	return (1);
 }

@@ -6,19 +6,14 @@
 /*   By: clumertz <clumertz@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/06 14:14:14 by clumertz          #+#    #+#             */
-/*   Updated: 2025/07/08 19:58:01 by clumertz         ###   ########.fr       */
+/*   Updated: 2025/07/12 17:52:06 by clumertz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header_ps.h"
 
-t_calc	*s_calc_creation(long nbr, int pos)
+t_calc	*s_calc_creation(t_calc *calc, long nbr, int pos)
 {
-	t_calc	*calc;
-
-	calc = malloc(sizeof(t_calc));
-	if (!calc)
-		return (NULL);
 	calc->number = nbr;
 	calc->pos = pos;
 	calc->target = -2147483649;

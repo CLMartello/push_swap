@@ -6,17 +6,13 @@
 /*   By: clumertz <clumertz@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 14:20:26 by clumertz          #+#    #+#             */
-/*   Updated: 2025/07/08 18:28:32 by clumertz         ###   ########.fr       */
+/*   Updated: 2025/07/12 10:52:37 by clumertz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header_ps.h"
 
-/*static int	ft_putchar(int c)
-{
-	return (write(1, &c, 1));
-}*/
-
+/*
 int	ft_putstr(char *s)
 {
 	int	i;
@@ -30,7 +26,7 @@ int	ft_putstr(char *s)
 		i++;
 	}
 	return (i);
-}
+}*/
 
 char	*ft_strdup(const char *s)
 {
@@ -84,4 +80,18 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	result[i] = '\0';
 	return (result);
+}
+
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	i;
+
+	i = 0;
+	while (s1[i] != '\0' || s2[i] != '\0')
+	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
+	}
+	return (0);
 }

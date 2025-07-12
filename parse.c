@@ -6,7 +6,7 @@
 /*   By: clumertz <clumertz@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 16:19:23 by clumertz          #+#    #+#             */
-/*   Updated: 2025/07/09 20:16:24 by clumertz         ###   ########.fr       */
+/*   Updated: 2025/07/12 17:03:57 by clumertz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ char	**parse(int argc, char **argv)
 {
 	char	**array;
 
+	if (!argv[1])
+		exit(EXIT_FAILURE);
 	array = NULL;
 	if (argc == 2)
 	{
@@ -83,7 +85,12 @@ char	**parse(int argc, char **argv)
 		if (!array)
 			return (NULL);
 	}
-	only_digit(array, (argc - 1));
+	if (array[0] == 0)
+	{
+		ft_free_mem(array, (size_array(array)));
+		msg_error();
+	}
+	only_digit(array, (size_array(array)));
 	return (array);
 }
 

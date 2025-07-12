@@ -6,7 +6,7 @@
 /*   By: clumertz <clumertz@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 17:14:48 by clumertz          #+#    #+#             */
-/*   Updated: 2025/07/05 18:55:12 by clumertz         ###   ########.fr       */
+/*   Updated: 2025/07/12 16:38:09 by clumertz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	rotate(t_stack *a)
 {
 	ra(a);
 	if (a->name == 'a')
-		ft_putstr("ra\n");
+		write(1, "ra\n", 3);
 	else if (a->name == 'b')
-		ft_putstr("rb\n");
+		write(1, "rb\n", 3);
 }
 
 void	ra(t_stack *a)
@@ -40,5 +40,10 @@ void	rr(t_stack *a, t_stack *b)
 {
 	ra(a);
 	ra(b);
-	ft_putstr("rr\n");
+}
+
+void	rr_print(t_stack *a, t_stack *b)
+{
+	rr(a, b);
+	write(1, "rr\n", 3);
 }

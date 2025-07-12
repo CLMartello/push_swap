@@ -6,7 +6,7 @@
 /*   By: clumertz <clumertz@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 19:23:50 by clumertz          #+#    #+#             */
-/*   Updated: 2025/07/08 19:57:19 by clumertz         ###   ########.fr       */
+/*   Updated: 2025/07/12 17:51:10 by clumertz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,9 @@ void	closest_max(t_stack *b, t_calc *calc)
 		min_number(b, calc);
 }
 
-static t_calc	*b_create_calc(t_stack *a, t_stack *b, int i)
+static t_calc	*b_create_calc(t_calc *calc, t_stack *a, t_stack *b, int i)
 {
-	t_calc	*calc;
-
-	calc = s_calc_creation(a->array[i], i);
+	calc = s_calc_creation(calc, a->array[i], i);
 	closest_max(b, calc);
 	times_rotation(a, b, calc);
 	return (calc);
@@ -71,9 +69,12 @@ t_calc	*calc_to_b(t_stack *a, t_stack *b)
 
 	i = 0;
 	total_cost = 1000;
+	calc = malloc(sizeof(t_calc));
+	if (!calc)
+		return (NULL);
 	while (i < a->size)
 	{
-		calc = b_create_calc(a, b, i);
+		calc = b_create_calc(calc, a, b, i);
 		cost_sum = calc->ra + calc->rb + calc->rr;
 		cost_sum += calc->rra + calc->rrb + calc->rrr;
 		if (cost_sum < total_cost)
@@ -82,8 +83,7 @@ t_calc	*calc_to_b(t_stack *a, t_stack *b)
 			better_pos = calc->pos;
 		}
 		i++;
-		free(calc);
 	}
-	calc = b_create_calc(a, b, better_pos);
+	calc = b_create_calc(calc, a, b, better_pos);
 	return (calc);
 }

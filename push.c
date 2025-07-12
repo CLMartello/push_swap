@@ -6,7 +6,7 @@
 /*   By: clumertz <clumertz@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 17:32:29 by clumertz          #+#    #+#             */
-/*   Updated: 2025/07/06 19:50:27 by clumertz         ###   ########.fr       */
+/*   Updated: 2025/07/12 10:49:50 by clumertz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	push(t_stack *a, t_stack *b)
 {
 	pa(a, b);
 	if (b->name == 'a')
-		ft_putstr("pa\n");
+		write(1, "pa\n", 3);
 	if (b->name == 'b')
-		ft_putstr("pb\n");
+		write(1, "pb\n", 3);
 }
 
 static void	silent_rotate(t_stack *a)
