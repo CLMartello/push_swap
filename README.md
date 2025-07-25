@@ -6,8 +6,11 @@ To order an array of integers using the smallest number os operations possible.
 
 ## Allowed operations
 swap: swap the first and second elements from the same stack;
+
 push: push the first element from one stack to another;
+
 rotate: rotate the first element to the last position;
+
 reverse rotate: rotate the last element to the first position;
 
 ## Usage
