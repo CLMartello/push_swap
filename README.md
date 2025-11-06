@@ -18,19 +18,19 @@ reverse rotate: rotate the last element to the first position;
 ```bash
 git clone git@github.com:CLMartello/push_swap.git
 ```
-3. Command "make" to compile mandatory part.
+2. Command "make" to compile mandatory part.
 ```bash
 make
 ```
-5. Command "make bonus" to compile bonus part.
+3. Command "make bonus" to compile bonus part.
 ```bash
 make bonus
 ```
-7. Run executable ./push_swap followed by arguments.
+4. Run executable ./push_swap followed by arguments.
 ```bash
 ./push_swap 5 2 1 4 3
 ```
-9. Run the executable ./checker followed by arguments either alone or after pipeline.
+5. Run the executable ./checker followed by arguments either alone or after pipeline.
 ```bash
 ARG="5 2 1 4 3"; ./push_swap $ARG | ./checker $ARG
 ```
