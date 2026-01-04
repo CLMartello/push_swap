@@ -20,7 +20,7 @@ reverse rotate: rotate the last element to the first position (rra/rrb/rrr);
 
   - GCC/clang
 
-3. Clone the repository.
+2. Clone the repository.
 ```bash
 git clone git@github.com:CLMartello/push_swap.git
 ```
